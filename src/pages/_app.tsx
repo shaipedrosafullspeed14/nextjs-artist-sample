@@ -9,7 +9,7 @@ import '../styles/global.css';
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
 	const getLayout = (content: React.ReactNode) => <Layout>{content}</Layout>;
-  const ignoreRoutes = ['/auth/signin'];
+  const ignoreRoutes = ['/auth/signin', '/auth/register'];
 	const renderContent = () => {
     if (!ignoreRoutes.includes(router.pathname)) {
       return getLayout(<Component {...pageProps} />);

@@ -1,4 +1,4 @@
-import { Grid, GridItem, Center, Image, VStack, Container, SimpleGrid, Box, Text, Button, Divider} from '@chakra-ui/react'
+import { Grid, GridItem, Center, Image, VStack, Container, SimpleGrid, Box, Text, Button } from '@chakra-ui/react'
 import { useRouter } from 'next/router';
 const HomePage = () => {
   const router = useRouter();
@@ -6,6 +6,9 @@ const HomePage = () => {
   const imageContent_2 = 'https://cdn.app.c-rayon.com/cloudfront/mametsubu/web_payment_promotion_images/ac518531-44ad-46c3-af6b-907b53ccba0a.png?response-content-disposition=filename%2A%3DUTF-8%27%27web-premiuminfo-pc.png'  
   const goToSignIn = () => {
     router.push('/auth/signin')
+  }
+  const goToSignUp = () => {
+    router.push('/auth/register')
   }
   return (
     <VStack bg='#f7f7f7'>
@@ -15,7 +18,7 @@ const HomePage = () => {
                     <Box maxW='350px' height='100px' p='5'>
                         <VStack>
                             <Text as='b'>Click here if you have not yet created a member account for both the app and the website.</Text>
-                            <Button bg='#8fb422' color='#fff' w='300px' fontSize='15px' mt='3'>Mamezutsu (paid member) registration</Button>
+                            <Button bg='#8fb422' color='#fff' w='300px' fontSize='15px' mt='3' onClick={goToSignUp}>Mamezutsu (paid member) registration</Button>
                         </VStack>
                     </Box>
                     <Box maxW='350px' height='100px' p='5'>

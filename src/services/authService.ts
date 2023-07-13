@@ -2,7 +2,7 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     signOut,
-    onAuthStateChanged,
+    createUserWithEmailAndPassword
   } from 'firebase/auth';
   import createFirebaseInstance from '../firebase/firebase';
   
@@ -25,12 +25,30 @@ import {
         }
       });
   };
+
+  export const signUp = async (email: string, password: string) => {
+    const auth = getAuth(app);
+    return createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signup
+        const user = userCredential.user;
+        console.log('user---', user);
+        // ...
+        return user;
+      })
+      .catch((error: unknown) => {
+        if (error instanceof Error) {
+          throw new Error(error.message);
+        }
+      });
+  };
   
   export const checkUserAuth = () => {
     const auth = getAuth();
     const user = auth.currentUser;
     if (user) {
         // user is authenticated and signed in
+        console.log('are we true')
         return true
     } else {
         return false
